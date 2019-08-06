@@ -1,0 +1,42 @@
+{
+  "bills": [
+    {
+      "name": "Rent",
+      "amount": "700",
+      "due": "Month",
+      "id": 1
+    },
+    {
+      "name": "Car",
+      "amount": "268",
+      "due": "Month",
+      "id": 2
+    },
+    {
+      "name": "Insurance",
+      "amount": "70",
+      "due": "Month",
+      "id": 3
+    },
+    {
+      "name": "Phone",
+      "amount": "55",
+      "due": "Month",
+      "id": 4
+    }
+  ],
+  "income": [
+    {
+      "source": "Web Development",
+      "amount": 4000,
+      "receive": "Month",
+      "id": 1
+    },
+    {
+      "source": "Part Time Job",
+      "amount": 800,
+      "receive": "Month",
+      "id": 2
+    }
+  ]
+}

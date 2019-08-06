@@ -1,0 +1,26 @@
+<div class="header">
+  <div class="header_container">
+    <div class="header_logo">
+      <p>Stephen Bevis</p>
+      <h2>Angular Budget App</h2>
+    </div>
+
+    <div class="nav">
+      <ul>
+        <li><a routerLink="/">Dashboard</a></li>
+      </ul>
+    </div>
+
+    <div class="bars" (click)="openMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+</div>
+
+<div id="mobile_nav" class="mobile_nav">
+  <ul>
+    <li><a routerLink="/" (click)="closeMenu()">Dashboard</a></li>
+  </ul>
+</div>

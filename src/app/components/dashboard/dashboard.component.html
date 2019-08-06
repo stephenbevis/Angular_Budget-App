@@ -1,0 +1,102 @@
+<app-manage-bill [currentBill]="currentBill" [updatingBill]="updatingBill" (addedBill)="onNewBill($event)" (updatedBill)="onUpdatedBill($event)" (deletedBill)="onRemoveBill($event)"></app-manage-bill>
+
+<app-manage-income [currentIncome]="currentIncome" [updatingIncome]="updatingIncome" (addedIncome)="onNewIncome($event)" (updatedIncome)="onUpdatedIncome($event)" (deletedIncome)="onRemoveIncome($event)"></app-manage-income>
+
+<div class="dashboard">
+  <div class="dashboard_container">
+
+    <div class="dashboard_header">
+      <h1>Here's Your Budget</h1>
+
+      <input (click)="openNewBillMenu()" type="button" value="New Bill">
+
+      <input (click)="openNewIncomeMenu()" type="button" value="New Income">
+    </div>
+
+    <div class="current_budget_container">
+
+      <!-- Current Budget -->
+
+      <div *ngIf="bills.length > 0">
+        <div class="current_bills">
+          <div class="main_header">
+            <h1>Bills</h1>
+          </div>
+  
+          <div class="headers">
+            <div class="headers_container">
+              <h4>Bill</h4>
+              <h4>Amount</h4>
+              <h4>Due Every</h4>
+            </div>
+          </div>
+        
+          <div *ngFor="let bill of bills" class="budget_item">
+            <h5>{{bill.name}}</h5>
+        
+            <p>${{bill.amount}}</p>
+        
+            <p>{{bill.due}}</p>
+        
+            <div class="manage">
+              <input (click)="manageBill(bill)" type="button" value="Manage">
+            </div>
+          </div>
+        
+          <div class="total_section">
+            Total: ${{amountSum}}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="bills.length == 0">
+        <h1 class="noLength">You Have No Bills</h1>
+      </div>
+
+      
+
+
+
+      <!-- Current Income -->
+
+      <div *ngIf="incomes.length > 0">
+        <div class="current_income">
+          <div class="main_header">
+            <h1>Income</h1>
+          </div>
+  
+          <div class="headers">
+            <div class="headers_container">
+              <h4>Income</h4>
+              <h4>Amount</h4>
+              <h4>Receive Every</h4>
+            </div>
+          </div>
+        
+          <div *ngFor="let income of incomes" class="budget_item">
+            <h5>{{income.source}}</h5>
+        
+            <p>${{income.amount}}</p>
+        
+            <p>{{income.receive}}</p>
+        
+            <div class="manage">
+              <input (click)="manageIncome(income)" type="button" value="Manage">
+            </div>
+          </div>
+        
+          <div class="total_section">
+            Total: ${{incomeAmountSum}}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="incomes.length == 0">
+        <h1 class="noLength">You Have No Income</h1>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

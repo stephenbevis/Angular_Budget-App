@@ -1,0 +1,53 @@
+<div id="manage_income" class="manage_income">
+  <div class="manage_income_container">
+    <div class="manage_income_header">
+
+      <div *ngIf="updatingIncome == false">
+        <h1>Add New Income</h1>
+      </div>
+
+      <div *ngIf="updatingIncome == true">
+        <h1>Updating - {{currentIncome.source}}</h1>
+      </div>
+
+      <h1 (click)="closeMenu()" class="close">&times;</h1>
+    </div>
+
+    <div class="manage_income_body">
+      <form action="#">
+        <div class="input_container">
+          <label for="">Source</label>
+          <input [(ngModel)]="currentIncome.source" type="text" name="source" #source>
+        </div>
+
+        <div class="input_container">
+          <label for="">Amount</label>
+          <input [(ngModel)]="currentIncome.amount" type="number" name="amount"  #amount>
+        </div>
+
+        <div class="input_container">
+          <label for="">Receive Every</label>
+          <input [(ngModel)]="currentIncome.receive" type="text" name="receive"  #receive>
+        </div>
+
+        <input [(ngModel)]="currentIncome.id" type="hidden" name="id" >
+
+        <div class="buttons_container" *ngIf="updatingIncome == true">
+            <div>
+              <input (click)="updateIncome()" class="submit" type="button" value="Update Income">
+            </div>
+
+            <div>
+              <input (click)="removeIncome(income)" class="delete" type="button" value="Delete">
+            </div>
+        </div>
+
+        <div *ngIf="updatingIncome == false">
+          <div>
+            <input (click)="addIncome(source.value, amount.value, receive.value)" class="submit" type="button" value="Add Income">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

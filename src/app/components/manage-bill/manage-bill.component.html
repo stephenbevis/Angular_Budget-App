@@ -1,0 +1,53 @@
+<div id="manage_bill" class="manage_bill">
+  <div class="manage_bill_container">
+    <div class="manage_bill_header">
+
+      <div *ngIf="updatingBill == false">
+        <h1>Add New Bill</h1>
+      </div>
+
+      <div *ngIf="updatingBill == true">
+        <h1>Updating - {{currentBill.name}}</h1>
+      </div>
+
+      <h1 (click)="closeMenu()" class="close">&times;</h1>
+    </div>
+
+    <div class="manage_bill_body">
+      <form action="#">
+        <div class="input_container">
+          <label for="">Bill</label>
+          <input [(ngModel)]="currentBill.name" type="text" name="bill" #name>
+        </div>
+
+        <div class="input_container">
+          <label for="">Amount</label>
+          <input [(ngModel)]="currentBill.amount" type="number" name="amount"  #amount>
+        </div>
+
+        <div class="input_container">
+          <label for="">Due Every</label>
+          <input [(ngModel)]="currentBill.due" type="text" name="due"  #due>
+        </div>
+
+        <input [(ngModel)]="currentBill.id" type="hidden" name="id" >
+
+        <div class="buttons_container" *ngIf="updatingBill == true">
+            <div>
+              <input (click)="updateBill()" class="submit" type="button" value="Update Bill">
+            </div>
+
+            <div>
+              <input (click)="removeBill(bill)" class="delete" type="button" value="Delete">
+            </div>
+        </div>
+
+        <div *ngIf="updatingBill == false">
+          <div>
+            <input (click)="addBill(name.value, amount.value, due.value)" class="submit" type="button" value="Add Bill">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
